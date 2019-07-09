@@ -22,6 +22,16 @@ import './App.css';
     </div>
   );
 }*/
+function IndecisionApp(){
+  return(
+    <div>
+      <Header />
+      <Action />
+      <Options />
+      <AddOption />
+    </div>
+  );
+}
 class Header extends React.Component{
   render(){
     return(
@@ -43,6 +53,16 @@ function Options(){
   return(
     <div>
       Options Components...
+      <Option />
+      <Option />
+      <Option />
+    </div>
+  );
+}
+function Option(){
+  return(
+    <div>
+      Option Components....
     </div>
   );
 }
@@ -53,14 +73,5 @@ function AddOption(){
     </div>
   );
 }
-function App(){
-  return(
-    <div>
-      <Header />
-      <Action />
-      <Options />
-      <AddOption />
-    </div>
-  );
-}
-export default App;
+
+export default IndecisionApp;
