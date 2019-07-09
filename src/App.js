@@ -23,11 +23,14 @@ import './App.css';
   );
 }*/
 function IndecisionApp(){
+  const title = "Indecision-App";
+  const sub_title = "Put your life in the hands of a computer.";
+  const options = ['One','Two','Three','Four'];
   return(
     <div>
-      <Header />
+      <Header title={title} sub_title={sub_title}/>
       <Action />
-      <Options />
+      <Options options={options}/>
       <AddOption />
     </div>
   );
@@ -36,8 +39,8 @@ class Header extends React.Component{
   render(){
     return(
       <div>
-        <h1>Indecision-App</h1>
-        <h3>Put your life in the hands of a computer.</h3>
+        <h1>{this.props.title}</h1>
+        <h3>{this.props.sub_title}</h3>
       </div>
     );
   }
@@ -49,20 +52,18 @@ function Action(){
     </div>
   );
 }
-function Options(){
+function Options(props){
   return(
     <div>
-      Options Components...
-      <Option />
-      <Option />
-      <Option />
+      {props.options.length}
+      {props.options.map((option) => <Option optionText={option}/>)}
     </div>
   );
 }
-function Option(){
+function Option(props){
   return(
     <div>
-      Option Components....
+      Option: {props.optionText}
     </div>
   );
 }
