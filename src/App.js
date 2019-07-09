@@ -55,10 +55,13 @@ function Action(){
 function Options(props){
   return(
     <div>
-      {props.options.length}
+      <button onClick={handleRemoveAll}>Remove All</button>
       {props.options.map((option) => <Option optionText={option}/>)}
     </div>
   );
+}
+function handleRemoveAll(){
+  alert("handle remove all");
 }
 function Option(props){
   return(
@@ -70,9 +73,19 @@ function Option(props){
 function AddOption(){
   return(
     <div>
-      AddOptions Components...
+      <form onSubmit={handleAddOption}>
+        <input type="text" name="option" />
+        <button>Add Option</button>
+      </form>
     </div>
   );
+}
+function handleAddOption(e){
+  e.preventDefault();
+  const option = e.target.elements.option.value.trim();
+  if(option){
+    alert(option);
+  }
 }
 
 export default IndecisionApp;
