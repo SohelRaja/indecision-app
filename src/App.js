@@ -36,6 +36,28 @@ class IndecisionApp extends React.Component{
       error: undefined
     };
   }
+  //React Component LifeCycle
+  componentDidMount(){
+    try{
+      const json = localStorage.getItem('options');
+      const options = JSON.parse(json); //To Convert STRING to OBJECT
+      if(options){
+        this.setState(()=>{
+          return {
+            options: options
+          };
+        });
+      }
+    }catch(e){
+      //Do nothing at all
+    }
+  }
+  componentDidUpdate(prevProps,prevState){
+    if(prevState.options.length !== this.state.options.length){
+      const json = JSON.stringify(this.state.options); //To Convert OBJECT to STRING
+      localStorage.setItem('options',json);
+    }
+  }
   //Delete All Options
   handleDeleteOptions(){
     this.setState(()=>{
@@ -64,6 +86,7 @@ class IndecisionApp extends React.Component{
   handleAddOption(e){
     e.preventDefault();
     const option = e.target.elements.option.value.trim();
+    e.target.elements.option.value = '';
     if(!option){
       this.setState(()=>{
         return {
@@ -146,6 +169,7 @@ function Options(props){
   return(
     <div>
       <button onClick={props.handleDeleteOptions}>Remove All</button>
+      {props.options.length === 0 && <p>Please add an option to get started!</p>}
       {props.options.map((option) => 
         <Option 
           key={option}
@@ -175,7 +199,7 @@ function AddOption(props){
   return(
     <div>
     {props.error && <p>{props.error}</p>}
-      <form onSubmit={props.handleAddOption} autocomplete="off">
+      <form onSubmit={props.handleAddOption} autoComplete="off">
         <input type="text" name="option" />
         <button>Add Option</button>
       </form>
