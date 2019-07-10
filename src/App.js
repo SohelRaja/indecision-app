@@ -29,7 +29,8 @@ class IndecisionApp extends React.Component{
     this.handlePick = this.handlePick.bind(this);
     this.handleAddOption = this.handleAddOption.bind(this);
     this.state = {
-      options: []//['One','Two','Three','Four']
+      options: [],//['One','Two','Three','Four']
+      error: undefined
     };
   }
   //Delete All Options
@@ -51,13 +52,22 @@ class IndecisionApp extends React.Component{
     e.preventDefault();
     const option = e.target.elements.option.value.trim();
     if(!option){
-      return "Enter Valid Value To Item";
+      this.setState(()=>{
+        return {
+          error: "Enter a valid input."
+        };
+      });
     }else if(this.state.options.indexOf(option) > -1){
-      return "This Option Is Already Exists";
+      this.setState(()=>{
+        return {
+          error: "Input Already Exists."
+        };
+      });
     }else{
       this.setState((prevState)=>{
         return{
-          options: prevState.options.concat([option])
+          options: prevState.options.concat([option]),
+          error: undefined
         };
       });
     }
@@ -80,6 +90,7 @@ class IndecisionApp extends React.Component{
           handleDeleteOptions={this.handleDeleteOptions}
         />
         <AddOption 
+          error={this.state.error}
           handleAddOption={this.handleAddOption}
         />
       </div>
@@ -124,6 +135,7 @@ function Option(props){
 function AddOption(props){
   return(
     <div>
+    {props.error && <p>{props.error}</p>}
       <form onSubmit={props.handleAddOption} autocomplete="off">
         <input type="text" name="option" />
         <button>Add Option</button>
