@@ -1,27 +1,9 @@
 import React from 'react';
-//import logo from './logo.svg';
+import AddOption from './components/AddOption.js';
+import Options from './components/Options.js';
+import Action from './components/Action.js';
+import Header from './components/Header.js';
 import './App.css';
-
-/*function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}*/
 
 //PARENT COMPONENT
 class IndecisionApp extends React.Component{
@@ -137,74 +119,6 @@ class IndecisionApp extends React.Component{
 //Default Props of Indecision-App
 IndecisionApp.defaultProps = {
   options: []
-}
-//HEADER COMPONENT child of INDECISIONAPP COMPONENT
-function Header(props){
-  return(
-    <div>
-      <h1>{props.title}</h1>
-      {props.sub_title && <h3>{props.sub_title}</h3>}
-    </div>
-  );
-}
-//Default Props of Header Component
-Header.defaultProps = {
-  title: "Indecision-App"
-}
-//ACTION COMPONENT child of INDECISIONAPP COMPONENT
-function Action(props){
-  return(
-    <div>
-      <button 
-        onClick={props.handlePick}
-        disabled={!props.hasOptions}
-      >
-        What should I do?
-      </button>
-    </div>
-  );
-}
-//OPTIONS COMPONENT child of INDECISIONAPP COMPONENT
-function Options(props){
-  return(
-    <div>
-      <button onClick={props.handleDeleteOptions}>Remove All</button>
-      {props.options.length === 0 && <p>Please add an option to get started!</p>}
-      {props.options.map((option) => 
-        <Option 
-          key={option}
-          optionText={option}
-          handleDeleteOption={props.handleDeleteOption}
-        />)
-      }
-    </div>
-  );
-}
-//OPTION COMPONENT child of OPTIONS COMPONENT
-function Option(props){
-  return(
-    <div>
-      Option: {props.optionText}
-      <button 
-        onClick={(e)=>{
-          props.handleDeleteOption(props.optionText)
-        }}
-      >
-        Remove
-      </button>
-    </div>
-  );
-}
-function AddOption(props){
-  return(
-    <div>
-    {props.error && <p>{props.error}</p>}
-      <form onSubmit={props.handleAddOption} autoComplete="off">
-        <input type="text" name="option" />
-        <button>Add Option</button>
-      </form>
-    </div>
-  );
 }
 
 export default IndecisionApp;
