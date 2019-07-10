@@ -22,6 +22,8 @@ import './App.css';
     </div>
   );
 }*/
+
+//PARENT COMPONENT
 class IndecisionApp extends React.Component{
   constructor(props){
     super(props);
@@ -29,7 +31,7 @@ class IndecisionApp extends React.Component{
     this.handlePick = this.handlePick.bind(this);
     this.handleAddOption = this.handleAddOption.bind(this);
     this.state = {
-      options: [],//['One','Two','Three','Four']
+      options: props.options,//['One','Two','Three','Four']
       error: undefined
     };
   }
@@ -97,14 +99,24 @@ class IndecisionApp extends React.Component{
     );
   }
 }
+//Default Props of Indecision-App
+IndecisionApp.defaultProps = {
+  options: []
+}
+//HEADER COMPONENT child of INDECISIONAPP COMPONENT
 function Header(props){
   return(
     <div>
       <h1>{props.title}</h1>
-      <h3>{props.sub_title}</h3>
+      {props.sub_title && <h3>{props.sub_title}</h3>}
     </div>
   );
 }
+//Default Props of Header Component
+Header.defaultProps = {
+  title: "Indecision-App"
+}
+//ACTION COMPONENT child of INDECISIONAPP COMPONENT
 function Action(props){
   return(
     <div>
@@ -117,6 +129,7 @@ function Action(props){
     </div>
   );
 }
+//OPTIONS COMPONENT child of INDECISIONAPP COMPONENT
 function Options(props){
   return(
     <div>
@@ -125,6 +138,7 @@ function Options(props){
     </div>
   );
 }
+//OPTION COMPONENT child of OPTIONS COMPONENT
 function Option(props){
   return(
     <div>
