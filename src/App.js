@@ -1,4 +1,5 @@
 import React from 'react';
+import Modal from 'react-modal'
 import AddOption from './components/AddOption.js';
 import Options from './components/Options.js';
 import Action from './components/Action.js';
@@ -25,6 +26,7 @@ class IndecisionApp extends React.Component{
   //React Component LifeCycle
   componentDidMount(){
     try{
+      Modal.setAppElement('body');
       const json = localStorage.getItem('options');
       const options = JSON.parse(json); //To Convert STRING to OBJECT
       if(options){

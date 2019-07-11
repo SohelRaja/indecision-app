@@ -65,6 +65,11 @@ button:disabled{
     color: white;
     font-weight: 500;
 }
+.Option p{
+    margin: 0;
+    padding: 5px 0 0 15px;
+    word-break: break-all;
+}
 .Option button{
     border: none;
     background: none;
@@ -108,4 +113,39 @@ button:disabled{
     opacity: .6;
     font-style: italic;
     padding: 10px 0 0 10px;
+}
+/*OtionModal Style*/
+.ReactModalPortal>div{
+   opacity: 0;
+}
+.ReactModalPortal .ReactModal__Overlay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 200ms ease-in-out;
+}
+.ReactModalPortal .ReactModal__Overlay--after-open{
+    opacity: 1;
+}
+.ReactModalPortal .ReactModal__Overlay--after-close{
+    opacity: 0;
+}
+.Modal{
+    background: #1a1e30;
+    color:white;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+}
+.Modal_subtitle{
+    word-break: break-all;
+}
+.Modal_button{
+    background: #9c4fdb;
+    border: none;
+    border-bottom: 3px solid #683592;
+    font-weight: bold;
+    color: white;
+    width: 30%;
+    padding: 5px;
 }

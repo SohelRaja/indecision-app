@@ -4,13 +4,13 @@ import React from 'react';
 function Option(props){
     return(
       <div className="Option">
-        {props.count}. {props.optionText}
+        <p>{props.count}. {props.optionText}</p>
         <button 
           onClick={(e)=>{
             props.handleDeleteOption(props.optionText)
           }}
         >
-          Remove
+           Remove
         </button>
       </div>
     );
