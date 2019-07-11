@@ -3,6 +3,7 @@ import AddOption from './components/AddOption.js';
 import Options from './components/Options.js';
 import Action from './components/Action.js';
 import Header from './components/Header.js';
+import OptionModal from './components/OptionModal.js';
 import './App.css';
 
 //PARENT COMPONENT
@@ -13,9 +14,11 @@ class IndecisionApp extends React.Component{
     this.handlePick = this.handlePick.bind(this);
     this.handleAddOption = this.handleAddOption.bind(this);
     this.handleDeleteOption = this.handleDeleteOption.bind(this);
+    this.handleClearSelectOption = this.handleClearSelectOption.bind(this);
     this.state = {
       options: props.options,//['One','Two','Three','Four']
-      error: undefined
+      error: undefined,
+      selectedOption: undefined
     };
   }
   //React Component LifeCycle
@@ -33,12 +36,20 @@ class IndecisionApp extends React.Component{
     }catch(e){
       //Do nothing at all
     }
-  }
+  }/*
   componentDidUpdate(prevProps,prevState){
     if(prevState.options.length !== this.state.options.length){
       const json = JSON.stringify(this.state.options); //To Convert OBJECT to STRING
       localStorage.setItem('options',json);
     }
+  }*/
+  //Clear Modal 
+  handleClearSelectOption(){
+    this.setState(()=>{
+      return{
+        selectedOption: undefined
+      };
+    });
   }
   //Delete All Options
   handleDeleteOptions(){
@@ -55,14 +66,18 @@ class IndecisionApp extends React.Component{
         options: prevState.options.filter((option)=>{
           return optionToRemove !== option;
         })
-      }
+      };
     });
   }
   //Handle Pick
   handlePick(){
     const randomNum = Math.floor(Math.random() * this.state.options.length);
     const option = this.state.options[randomNum];
-    alert(option);
+    this.setState(()=>{
+      return{
+        selectedOption: option
+      };
+    });
   }
   //Handle Add Option
   handleAddOption(e){
@@ -111,6 +126,10 @@ class IndecisionApp extends React.Component{
         <AddOption 
           error={this.state.error}
           handleAddOption={this.handleAddOption}
+        />
+        <OptionModal 
+          selectedOption={this.state.selectedOption}
+          handleClearSelectOption={this.handleClearSelectOption}
         />
       </div>
     );
