@@ -1,0 +1,111 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, .Body{
+    background: #2c324b;
+}
+button{
+    cursor: pointer;
+}
+button:disabled{
+    cursor: default;
+}
+/*Header Component Style*/
+.Header{
+    color: beige;
+    background: #20222b;
+    padding: 15px 0;
+    margin-bottom: 30px;
+}
+.Header .Header_subtitle{
+    color: #4a5480;
+}
+/*Action Component Style*/
+.big-button{
+    background: #9c4fdb;
+    border: none;
+    border-bottom: 3px solid #683592;
+    font-weight: bold;
+    color: white;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 30px;
+}
+.big-button:disabled{
+    opacity: .5;
+}
+/*Options Component Style*/
+.Options{
+    background: #374372;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+.Options h4{
+    color: white;
+}
+.Options button{
+    border: none;
+    background: none;
+    color: #9480a5;
+}
+/*ShowAddOption section*/
+.ShowAddOption{
+    background: #4d536d;
+    margin-bottom: 15px;
+}
+/*Option Component Style*/
+.Option{
+    border-bottom: 1px solid #374372;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    color: white;
+    font-weight: 500;
+}
+.Option button{
+    border: none;
+    background: none;
+    color: #9480a5;
+}
+/*option_message*/
+.option_message{
+    border-bottom: 1px solid #374372;
+    color: white;
+    opacity: .5;
+    text-align: center;
+    margin: 0;
+    padding: 15px;
+}
+/*AddOption Component Style*/
+.AddOption{
+    display: flex;
+    padding: 15px;
+}
+.AddOption input{
+    flex-grow: 1;
+    background: #2c324b;
+    color: white;
+    border: none;
+    border-bottom: 3px solid #1a1e30;
+    margin-right: 15px;
+    padding-left: 15px;
+}
+.AddOption button{
+    background: #9c4fdb;
+    border: none;
+    border-bottom: 3px solid #683592;
+    font-weight: bold;
+    color: white;
+    width: 20%;
+    padding: 5px;
+}
+/*error_message*/
+.error_message{
+    color: white;
+    opacity: .6;
+    font-style: italic;
+    padding: 10px 0 0 10px;
+}

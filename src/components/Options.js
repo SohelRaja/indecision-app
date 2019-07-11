@@ -5,12 +5,20 @@ import Option from './Option.js';
 function Options(props){
     return(
       <div>
-        <button onClick={props.handleDeleteOptions}>Remove All</button>
-        {props.options.length === 0 && <p>Please add an option to get started!</p>}
-        {props.options.map((option) => 
+        <div className="Options">
+          <h4>Your Options</h4>
+          <button 
+            onClick={props.handleDeleteOptions}
+          >
+            Remove All
+          </button>
+        </div>
+        {props.options.length === 0 && <p className="option_message">Please add an option to get started!</p>}
+        {props.options.map((option,index) => 
           <Option 
             key={option}
             optionText={option}
+            count={index + 1}
             handleDeleteOption={props.handleDeleteOption}
           />)
         }

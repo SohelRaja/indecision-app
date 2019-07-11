@@ -3,9 +3,13 @@ import React from 'react';
 //HEADER COMPONENT child of INDECISIONAPP COMPONENT
 function Header(props){
     return(
-      <div>
-        <h1>{props.title}</h1>
-        {props.sub_title && <h3>{props.sub_title}</h3>}
+      <div className="Header">
+        <div className="container">
+          <div className="col-md-6 mx-auto">
+            <h2 className="Header_title">{props.title}</h2>
+            {props.sub_title && <h5 className="Header_subtitle">{props.sub_title}</h5>}
+          </div>
+        </div>
       </div>
     );
   }

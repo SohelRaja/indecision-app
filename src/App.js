@@ -5,6 +5,7 @@ import Action from './components/Action.js';
 import Header from './components/Header.js';
 import OptionModal from './components/OptionModal.js';
 import './App.css';
+import './asserts/bootstrap/bootstrap.css';
 
 //PARENT COMPONENT
 class IndecisionApp extends React.Component{
@@ -109,24 +110,30 @@ class IndecisionApp extends React.Component{
     const title = "Indecision-App";
     const sub_title = "Put your life in the hands of a computer.";
     return(
-      <div>
+      <div className="Body">
         <Header 
           title={title} 
           sub_title={sub_title}
         />
-        <Action 
-          hasOptions={this.state.options.length > 0}
-          handlePick={this.handlePick}
-        />
-        <Options 
-          options={this.state.options}
-          handleDeleteOptions={this.handleDeleteOptions}
-          handleDeleteOption={this.handleDeleteOption}
-        />
-        <AddOption 
-          error={this.state.error}
-          handleAddOption={this.handleAddOption}
-        />
+        <div className="container">
+          <div className="col-md-6 mx-auto">
+            <Action 
+              hasOptions={this.state.options.length > 0}
+              handlePick={this.handlePick}
+            />
+            <div className="ShowAddOption">
+              <Options 
+                options={this.state.options}
+                handleDeleteOptions={this.handleDeleteOptions}
+                handleDeleteOption={this.handleDeleteOption}
+              />
+              <AddOption 
+                error={this.state.error}
+                handleAddOption={this.handleAddOption}
+              />
+            </div>
+          </div>
+        </div>
         <OptionModal 
           selectedOption={this.state.selectedOption}
           handleClearSelectOption={this.handleClearSelectOption}
