@@ -39,13 +39,13 @@ class IndecisionApp extends React.Component{
     }catch(e){
       //Do nothing at all
     }
-  }/*
+  }
   componentDidUpdate(prevProps,prevState){
     if(prevState.options.length !== this.state.options.length){
       const json = JSON.stringify(this.state.options); //To Convert OBJECT to STRING
       localStorage.setItem('options',json);
     }
-  }*/
+  }
   //Clear Modal 
   handleClearSelectOption(){
     this.setState(()=>{
@@ -118,7 +118,7 @@ class IndecisionApp extends React.Component{
           sub_title={sub_title}
         />
         <div className="container">
-          <div className="col-md-6 mx-auto">
+          <div className="col-md-8 col-lg-6 mx-auto">
             <Action 
               hasOptions={this.state.options.length > 0}
               handlePick={this.handlePick}

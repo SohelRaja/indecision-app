@@ -17,7 +17,7 @@ button:disabled{
     color: beige;
     background: #20222b;
     padding: 15px 0;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 .Header .Header_subtitle{
     color: #4a5480;
@@ -31,7 +31,7 @@ button:disabled{
     color: white;
     width: 100%;
     padding: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 .big-button:disabled{
     opacity: .5;
@@ -87,6 +87,7 @@ button:disabled{
 /*AddOption Component Style*/
 .AddOption{
     display: flex;
+    flex-direction: column;
     padding: 15px;
 }
 .AddOption input{
@@ -95,7 +96,7 @@ button:disabled{
     color: white;
     border: none;
     border-bottom: 3px solid #1a1e30;
-    margin-right: 15px;
+    margin-bottom: 15px;
     padding-left: 15px;
 }
 .AddOption button{
@@ -104,7 +105,7 @@ button:disabled{
     border-bottom: 3px solid #683592;
     font-weight: bold;
     color: white;
-    width: 20%;
+    width: 100%;
     padding: 5px;
 }
 /*error_message*/
@@ -148,4 +149,28 @@ button:disabled{
     color: white;
     width: 30%;
     padding: 5px;
+}
+/*Media Query for Mobile device*/
+@media(max-width: 1200px){
+    .AddOption button{
+        font-size: 12px;
+    }
+}
+@media(min-width: 995px){
+    /*This is for large devices*/
+    .AddOption{
+        flex-direction: row;
+    }
+    .AddOption input{
+        margin: 0 15px 0 0;
+    }
+    .AddOption button{
+        width:20%;
+    }
+    .big-button{
+        margin-bottom: 30px;
+    }
+    .Header{
+        margin-bottom: 30px;
+    }
 }
